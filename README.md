@@ -1,3 +1,4 @@
+HEAD
 # Sistema de Gerenciamento de Estoque 📦
 
 Sistema web responsivo desenvolvido em Python (Flask) e MongoDB para gerenciar produtos de uma loja, calcular lucros automaticamente e monitorar níveis de estoque.
@@ -14,3 +15,7 @@ Sistema web responsivo desenvolvido em Python (Flask) e MongoDB para gerenciar p
 Se você tem o Docker instalado, basta rodar:
 ```bash
 docker run -d -p 27017:27017 --name mongodb mongo:latest
+=======
+# ProjetoEstoquePessoal
+Estava querendo criar sistema de gerenciamento de estoque para pessoal autônomas e esse foi o resultado!
+e3e7cd6bdc9400481a45a6798e90116d4fa48bb5
