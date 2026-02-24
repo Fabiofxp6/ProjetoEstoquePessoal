@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4">📊 Relatório de Desempenho</h2>
+
+<div class="row g-3 mb-4 text-center">
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 border-start border-primary border-4">
+            <div class="card-body">
+                <h6 class="text-muted">Faturamento Total</h6>
+                <h3 class="text-primary">R$ {{ "%.2f"|format(metrics.faturamento) }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 border-start border-success border-4">
+            <div class="card-body">
+                <h6 class="text-muted">Lucro Real</h6>
+                <h3 class="text-success">R$ {{ "%.2f"|format(metrics.lucro) }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 border-start border-info border-4">
+            <div class="card-body">
+                <h6 class="text-muted">Total de Vendas</h6>
+                <h3>{{ metrics.contagem }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 border-start border-dark border-4">
+            <div class="card-body">
+                <h6 class="text-muted">Ticket Médio</h6>
+                <h3>R$ {{ "%.2f"|format(metrics.ticket) }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-header bg-white">
+        <h5 class="mb-0">Histórico de Vendas</h5>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Data/Hora</th>
+                    <th>Itens Vendidos</th>
+                    <th>Pagamento</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for v in vendas %}
+                <tr>
+                    <td>{{ v.data.strftime('%d/%m/%Y %H:%M') }}</td>
+                    <td>
+                        {% for item in v.itens %}
+                        <span class="badge bg-light text-dark border">{{ item.quantidade }}x {{ item.modelo }}</span>
+                        {% endfor %}
+                    </td>
+                    <td><span class="badge bg-secondary">{{ v.pagamento }}</span></td>
+                    <td class="fw-bold text-success">R$ {{ "%.2f"|format(v.total) }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" class="text-center py-4">Nenhuma venda registrada ainda.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

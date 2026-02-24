@@ -1,0 +1,38 @@
+/* Estilos globais e ajustes para responsividade */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.table-wrapper {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Identificação visual de estoque na tabela */
+.row-esgotado {
+    background-color: #f8d7da !important;
+    color: #842029;
+}
+
+.row-baixo-estoque {
+    background-color: #fff3cd !important;
+    color: #664d03;
+}
+
+.row-normal {
+    background-color: #d1e7dd !important;
+}
+
+/* Indicadores de status - Badge estilo */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+}
+.status-esgotado { background: #dc3545; color: white; }
+.status-baixo { background: #ffc107; color: black; }
+.status-normal { background: #198754; color: white; }
